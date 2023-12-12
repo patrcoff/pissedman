@@ -1,6 +1,7 @@
 # This Python file uses the following encoding: utf-8
 import sys
 import requests
+import json
 
 from PySide6.QtWidgets import QApplication, QWidget
 
@@ -19,11 +20,21 @@ class Widget(QWidget):
         self.ui.sendBtn.clicked.connect(self.make_request)
 
     def make_request(self):
-        #body = self.requestEdit.value
-        #response = requests.request(method=self.method, url=self.ui.uriEdit.value,json=body)
-        uri = self.ui.uriEdit.text()
-        response = requests.get(url=uri,verify=False)
+        
+
+        method=self.ui.methodCombo.currentText()             # has been checked
+
+        if method in ["GET", "DELETE", "OPTIONS"]:
+            body = None
+        elif method in ["POST", "PUT"]:
+            body = json.loads(self.ui.requestEdit.toPlainText()) # has been checked
+
+        uri = self.ui.uriEdit.text()                         # has been checked
+
+        response = requests.request(url=uri,method=method,json=body,verify=False)
         self.ui.responseViewer.setText(response.text)
+
+
 
 
 

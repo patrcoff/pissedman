@@ -15,55 +15,118 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QLabel, QLineEdit, QPushButton,
-    QScrollArea, QSizePolicy, QTextBrowser, QTextEdit,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
+    QLabel, QLineEdit, QPlainTextEdit, QPushButton,
+    QSizePolicy, QSpacerItem, QTextBrowser, QTextEdit,
+    QVBoxLayout, QWidget)
 
 class Ui_Widget(object):
     def setupUi(self, Widget):
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
         Widget.resize(800, 600)
-        self.responseArea = QScrollArea(Widget)
-        self.responseArea.setObjectName(u"responseArea")
-        self.responseArea.setGeometry(QRect(20, 300, 631, 271))
-        self.responseArea.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 629, 269))
-        self.responseViewer = QTextBrowser(self.scrollAreaWidgetContents)
-        self.responseViewer.setObjectName(u"responseViewer")
-        self.responseViewer.setGeometry(QRect(0, 0, 631, 271))
-        self.responseArea.setWidget(self.scrollAreaWidgetContents)
-        self.requestArea = QScrollArea(Widget)
-        self.requestArea.setObjectName(u"requestArea")
-        self.requestArea.setGeometry(QRect(20, 109, 631, 181))
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(100)
+        sizePolicy.setVerticalStretch(10)
+        sizePolicy.setHeightForWidth(Widget.sizePolicy().hasHeightForWidth())
+        Widget.setSizePolicy(sizePolicy)
+        self.gridLayout = QGridLayout(Widget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.label = QLabel(Widget)
+        self.label.setObjectName(u"label")
+
+        self.horizontalLayout.addWidget(self.label)
+
+        self.uriEdit = QLineEdit(Widget)
+        self.uriEdit.setObjectName(u"uriEdit")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(100)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.uriEdit.sizePolicy().hasHeightForWidth())
+        self.uriEdit.setSizePolicy(sizePolicy1)
+
+        self.horizontalLayout.addWidget(self.uriEdit)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.label_2 = QLabel(Widget)
+        self.label_2.setObjectName(u"label_2")
+
+        self.horizontalLayout_3.addWidget(self.label_2)
+
+        self.methodCombo = QComboBox(Widget)
+        self.methodCombo.addItem("")
+        self.methodCombo.addItem("")
+        self.methodCombo.addItem("")
+        self.methodCombo.addItem("")
+        self.methodCombo.addItem("")
+        self.methodCombo.setObjectName(u"methodCombo")
+        sizePolicy2 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(5)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.methodCombo.sizePolicy().hasHeightForWidth())
+        self.methodCombo.setSizePolicy(sizePolicy2)
+        self.methodCombo.setContextMenuPolicy(Qt.DefaultContextMenu)
+
+        self.horizontalLayout_3.addWidget(self.methodCombo)
+
+        self.sendBtn = QPushButton(Widget)
+        self.sendBtn.setObjectName(u"sendBtn")
         font = QFont()
-        font.setFamilies([u"Noteworthy"])
-        self.requestArea.setFont(font)
-        self.requestArea.setWidgetResizable(True)
-        self.scrollAreaWidgetContents_2 = QWidget()
-        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 629, 179))
-        self.requestEdit = QTextEdit(self.scrollAreaWidgetContents_2)
+        font.setFamilies([u"Phosphate"])
+        self.sendBtn.setFont(font)
+
+        self.horizontalLayout_3.addWidget(self.sendBtn)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
+
+
+        self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 3)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer, 1, 0, 2, 3)
+
+        self.requestEdit = QPlainTextEdit(Widget)
         self.requestEdit.setObjectName(u"requestEdit")
-        self.requestEdit.setGeometry(QRect(0, 0, 631, 181))
+        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy3.setHorizontalStretch(100)
+        sizePolicy3.setVerticalStretch(10)
+        sizePolicy3.setHeightForWidth(self.requestEdit.sizePolicy().hasHeightForWidth())
+        self.requestEdit.setSizePolicy(sizePolicy3)
         font1 = QFont()
         font1.setFamilies([u"Verdana"])
         self.requestEdit.setFont(font1)
-        self.requestArea.setWidget(self.scrollAreaWidgetContents_2)
-        self.sendBtn = QPushButton(Widget)
-        self.sendBtn.setObjectName(u"sendBtn")
-        self.sendBtn.setGeometry(QRect(670, 52, 100, 40))
-        font2 = QFont()
-        font2.setFamilies([u"Phosphate"])
-        self.sendBtn.setFont(font2)
-        self.uriEdit = QLineEdit(Widget)
-        self.uriEdit.setObjectName(u"uriEdit")
-        self.uriEdit.setGeometry(QRect(60, 60, 591, 31))
-        self.label = QLabel(Widget)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(24, 67, 58, 16))
+        self.requestEdit.setLineWrapMode(QPlainTextEdit.NoWrap)
+
+        self.gridLayout.addWidget(self.requestEdit, 2, 1, 1, 1)
+
+        self.paramsEdit = QTextEdit(Widget)
+        self.paramsEdit.setObjectName(u"paramsEdit")
+        sizePolicy3.setHeightForWidth(self.paramsEdit.sizePolicy().hasHeightForWidth())
+        self.paramsEdit.setSizePolicy(sizePolicy3)
+
+        self.gridLayout.addWidget(self.paramsEdit, 2, 2, 1, 1)
+
+        self.responseViewer = QTextBrowser(Widget)
+        self.responseViewer.setObjectName(u"responseViewer")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(100)
+        sizePolicy4.setHeightForWidth(self.responseViewer.sizePolicy().hasHeightForWidth())
+        self.responseViewer.setSizePolicy(sizePolicy4)
+        self.responseViewer.setTextInteractionFlags(Qt.LinksAccessibleByKeyboard|Qt.TextSelectableByKeyboard|Qt.TextSelectableByMouse)
+
+        self.gridLayout.addWidget(self.responseViewer, 3, 1, 1, 2)
+
 
         self.retranslateUi(Widget)
 
@@ -72,7 +135,14 @@ class Ui_Widget(object):
 
     def retranslateUi(self, Widget):
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Widget", None))
-        self.sendBtn.setText(QCoreApplication.translate("Widget", u"Send", None))
         self.label.setText(QCoreApplication.translate("Widget", u"URI:", None))
+        self.label_2.setText(QCoreApplication.translate("Widget", u"Method:", None))
+        self.methodCombo.setItemText(0, QCoreApplication.translate("Widget", u"GET", None))
+        self.methodCombo.setItemText(1, QCoreApplication.translate("Widget", u"PUT", None))
+        self.methodCombo.setItemText(2, QCoreApplication.translate("Widget", u"POST", None))
+        self.methodCombo.setItemText(3, QCoreApplication.translate("Widget", u"DELETE", None))
+        self.methodCombo.setItemText(4, QCoreApplication.translate("Widget", u"OPTIONS", None))
+
+        self.sendBtn.setText(QCoreApplication.translate("Widget", u"Send", None))
     # retranslateUi
 
