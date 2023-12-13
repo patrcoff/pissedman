@@ -16,11 +16,10 @@ class Widget(QWidget):
         super().__init__(parent)
         self.ui = Ui_Widget()
         self.ui.setupUi(self)
-        self.method = 'GET' # haven't added this drop down selection yet
+        self.ui.methodCombo.currentTextChanged.connect(self.configure_request_body_input)
         self.ui.sendBtn.clicked.connect(self.make_request)
 
     def make_request(self):
-        
 
         method=self.ui.methodCombo.currentText()             # has been checked
 
@@ -33,6 +32,17 @@ class Widget(QWidget):
 
         response = requests.request(url=uri,method=method,json=body,verify=False)
         self.ui.responseViewer.setText(response.text)
+
+
+    def configure_request_body_input(self):
+
+        method=self.ui.methodCombo.currentText()
+
+        if method in ["GET", "DELETE", "OPTIONS"]: #then we shouldn't use request body
+            self.ui.requestEdit.setReadOnly(True)
+
+        else:
+            self.ui.requestEdit.setReadOnly(False)
 
 
 

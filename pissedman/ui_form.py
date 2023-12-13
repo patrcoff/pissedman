@@ -15,10 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QPlainTextEdit, QPushButton,
-    QSizePolicy, QSpacerItem, QTextBrowser, QTextEdit,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QGridLayout,
+    QHBoxLayout, QLabel, QLineEdit, QPlainTextEdit,
+    QPushButton, QSizePolicy, QSpacerItem, QTextBrowser,
+    QTextEdit, QVBoxLayout, QWidget)
 
 class Ui_Widget(object):
     def setupUi(self, Widget):
@@ -77,6 +77,39 @@ class Ui_Widget(object):
 
         self.horizontalLayout_3.addWidget(self.methodCombo)
 
+        self.checkBox_4 = QCheckBox(Widget)
+        self.checkBox_4.setObjectName(u"checkBox_4")
+        self.checkBox_4.setChecked(True)
+
+        self.horizontalLayout_3.addWidget(self.checkBox_4)
+
+        self.checkBox_6 = QCheckBox(Widget)
+        self.checkBox_6.setObjectName(u"checkBox_6")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy3.setHorizontalStretch(5)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.checkBox_6.sizePolicy().hasHeightForWidth())
+        self.checkBox_6.setSizePolicy(sizePolicy3)
+        self.checkBox_6.setChecked(True)
+
+        self.horizontalLayout_3.addWidget(self.checkBox_6)
+
+        self.checkBox = QCheckBox(Widget)
+        self.checkBox.setObjectName(u"checkBox")
+        self.checkBox.setChecked(True)
+
+        self.horizontalLayout_3.addWidget(self.checkBox)
+
+        self.checkBox_2 = QCheckBox(Widget)
+        self.checkBox_2.setObjectName(u"checkBox_2")
+
+        self.horizontalLayout_3.addWidget(self.checkBox_2)
+
+        self.checkBox_3 = QCheckBox(Widget)
+        self.checkBox_3.setObjectName(u"checkBox_3")
+
+        self.horizontalLayout_3.addWidget(self.checkBox_3)
+
         self.sendBtn = QPushButton(Widget)
         self.sendBtn.setObjectName(u"sendBtn")
         font = QFont()
@@ -97,11 +130,11 @@ class Ui_Widget(object):
 
         self.requestEdit = QPlainTextEdit(Widget)
         self.requestEdit.setObjectName(u"requestEdit")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy3.setHorizontalStretch(100)
-        sizePolicy3.setVerticalStretch(10)
-        sizePolicy3.setHeightForWidth(self.requestEdit.sizePolicy().hasHeightForWidth())
-        self.requestEdit.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy4.setHorizontalStretch(100)
+        sizePolicy4.setVerticalStretch(10)
+        sizePolicy4.setHeightForWidth(self.requestEdit.sizePolicy().hasHeightForWidth())
+        self.requestEdit.setSizePolicy(sizePolicy4)
         font1 = QFont()
         font1.setFamilies([u"Verdana"])
         self.requestEdit.setFont(font1)
@@ -111,18 +144,18 @@ class Ui_Widget(object):
 
         self.paramsEdit = QTextEdit(Widget)
         self.paramsEdit.setObjectName(u"paramsEdit")
-        sizePolicy3.setHeightForWidth(self.paramsEdit.sizePolicy().hasHeightForWidth())
-        self.paramsEdit.setSizePolicy(sizePolicy3)
+        sizePolicy4.setHeightForWidth(self.paramsEdit.sizePolicy().hasHeightForWidth())
+        self.paramsEdit.setSizePolicy(sizePolicy4)
 
         self.gridLayout.addWidget(self.paramsEdit, 2, 2, 1, 1)
 
         self.responseViewer = QTextBrowser(Widget)
         self.responseViewer.setObjectName(u"responseViewer")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(100)
-        sizePolicy4.setHeightForWidth(self.responseViewer.sizePolicy().hasHeightForWidth())
-        self.responseViewer.setSizePolicy(sizePolicy4)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(100)
+        sizePolicy5.setHeightForWidth(self.responseViewer.sizePolicy().hasHeightForWidth())
+        self.responseViewer.setSizePolicy(sizePolicy5)
         self.responseViewer.setTextInteractionFlags(Qt.LinksAccessibleByKeyboard|Qt.TextSelectableByKeyboard|Qt.TextSelectableByMouse)
 
         self.gridLayout.addWidget(self.responseViewer, 3, 1, 1, 2)
@@ -143,6 +176,11 @@ class Ui_Widget(object):
         self.methodCombo.setItemText(3, QCoreApplication.translate("Widget", u"DELETE", None))
         self.methodCombo.setItemText(4, QCoreApplication.translate("Widget", u"OPTIONS", None))
 
+        self.checkBox_4.setText(QCoreApplication.translate("Widget", u"PPrint", None))
+        self.checkBox_6.setText(QCoreApplication.translate("Widget", u"APPLICATION/JSON", None))
+        self.checkBox.setText(QCoreApplication.translate("Widget", u"Verify SSL", None))
+        self.checkBox_2.setText(QCoreApplication.translate("Widget", u"Allow HTTP", None))
+        self.checkBox_3.setText(QCoreApplication.translate("Widget", u"Params", None))
         self.sendBtn.setText(QCoreApplication.translate("Widget", u"Send", None))
     # retranslateUi
 
