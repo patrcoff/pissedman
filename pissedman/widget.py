@@ -19,6 +19,10 @@ class Widget(QWidget):
         self.ui.methodCombo.currentTextChanged.connect(self.configure_request_body_input)
         self.ui.sendBtn.clicked.connect(self.make_request)
 
+    @staticmethod
+    def validate_body(body):
+        return True
+
     def make_request(self):
 
         method=self.ui.methodCombo.currentText()             # has been checked
@@ -28,10 +32,12 @@ class Widget(QWidget):
         elif method in ["POST", "PUT"]:
             body = json.loads(self.ui.requestEdit.toPlainText()) # has been checked
 
-        uri = self.ui.uriEdit.text()                         # has been checked
-
-        response = requests.request(url=uri,method=method,json=body,verify=False)
-        self.ui.responseViewer.setText(response.text)
+        if validate_body(body):
+            uri = self.ui.uriEdit.text()                         # has been checked
+            response = requests.request(url=uri,method=method,json=body,verify=False)
+            self.ui.responseViewer.setText(response.text)
+        else:
+            print('Error - invalid request body')
 
 
     def configure_request_body_input(self):
