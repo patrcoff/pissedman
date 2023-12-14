@@ -32,6 +32,21 @@ class Ui_Widget(object):
         Widget.setSizePolicy(sizePolicy)
         self.gridLayout = QGridLayout(Widget)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer, 3, 2, 1, 2)
+
+        self.responseViewer = QTextBrowser(Widget)
+        self.responseViewer.setObjectName(u"responseViewer")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(100)
+        sizePolicy1.setHeightForWidth(self.responseViewer.sizePolicy().hasHeightForWidth())
+        self.responseViewer.setSizePolicy(sizePolicy1)
+        self.responseViewer.setTextInteractionFlags(Qt.LinksAccessibleByKeyboard|Qt.TextSelectableByKeyboard|Qt.TextSelectableByMouse)
+
+        self.gridLayout.addWidget(self.responseViewer, 6, 2, 1, 2)
+
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.horizontalLayout = QHBoxLayout()
@@ -43,11 +58,11 @@ class Ui_Widget(object):
 
         self.uriEdit = QLineEdit(Widget)
         self.uriEdit.setObjectName(u"uriEdit")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy1.setHorizontalStretch(100)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.uriEdit.sizePolicy().hasHeightForWidth())
-        self.uriEdit.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(100)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.uriEdit.sizePolicy().hasHeightForWidth())
+        self.uriEdit.setSizePolicy(sizePolicy2)
 
         self.horizontalLayout.addWidget(self.uriEdit)
 
@@ -68,11 +83,11 @@ class Ui_Widget(object):
         self.methodCombo.addItem("")
         self.methodCombo.addItem("")
         self.methodCombo.setObjectName(u"methodCombo")
-        sizePolicy2 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
-        sizePolicy2.setHorizontalStretch(5)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.methodCombo.sizePolicy().hasHeightForWidth())
-        self.methodCombo.setSizePolicy(sizePolicy2)
+        sizePolicy3 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
+        sizePolicy3.setHorizontalStretch(5)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.methodCombo.sizePolicy().hasHeightForWidth())
+        self.methodCombo.setSizePolicy(sizePolicy3)
         self.methodCombo.setContextMenuPolicy(Qt.DefaultContextMenu)
 
         self.horizontalLayout_3.addWidget(self.methodCombo)
@@ -85,11 +100,11 @@ class Ui_Widget(object):
 
         self.checkBox_6 = QCheckBox(Widget)
         self.checkBox_6.setObjectName(u"checkBox_6")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy3.setHorizontalStretch(5)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.checkBox_6.sizePolicy().hasHeightForWidth())
-        self.checkBox_6.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(5)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.checkBox_6.sizePolicy().hasHeightForWidth())
+        self.checkBox_6.setSizePolicy(sizePolicy4)
         self.checkBox_6.setChecked(True)
 
         self.horizontalLayout_3.addWidget(self.checkBox_6)
@@ -122,43 +137,39 @@ class Ui_Widget(object):
         self.verticalLayout.addLayout(self.horizontalLayout_3)
 
 
-        self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 3)
+        self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 5)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.label_3 = QLabel(Widget)
+        self.label_3.setObjectName(u"label_3")
 
-        self.gridLayout.addItem(self.horizontalSpacer, 1, 0, 2, 3)
+        self.gridLayout.addWidget(self.label_3, 1, 2, 1, 1)
+
+        self.label_4 = QLabel(Widget)
+        self.label_4.setObjectName(u"label_4")
+
+        self.gridLayout.addWidget(self.label_4, 1, 3, 1, 1)
 
         self.requestEdit = QPlainTextEdit(Widget)
         self.requestEdit.setObjectName(u"requestEdit")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy4.setHorizontalStretch(100)
-        sizePolicy4.setVerticalStretch(10)
-        sizePolicy4.setHeightForWidth(self.requestEdit.sizePolicy().hasHeightForWidth())
-        self.requestEdit.setSizePolicy(sizePolicy4)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy5.setHorizontalStretch(100)
+        sizePolicy5.setVerticalStretch(10)
+        sizePolicy5.setHeightForWidth(self.requestEdit.sizePolicy().hasHeightForWidth())
+        self.requestEdit.setSizePolicy(sizePolicy5)
         font1 = QFont()
         font1.setFamilies([u"Verdana"])
         self.requestEdit.setFont(font1)
         self.requestEdit.setLineWrapMode(QPlainTextEdit.NoWrap)
+        self.requestEdit.setTextInteractionFlags(Qt.TextSelectableByMouse)
 
-        self.gridLayout.addWidget(self.requestEdit, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.requestEdit, 2, 2, 1, 1)
 
         self.paramsEdit = QTextEdit(Widget)
         self.paramsEdit.setObjectName(u"paramsEdit")
-        sizePolicy4.setHeightForWidth(self.paramsEdit.sizePolicy().hasHeightForWidth())
-        self.paramsEdit.setSizePolicy(sizePolicy4)
+        sizePolicy5.setHeightForWidth(self.paramsEdit.sizePolicy().hasHeightForWidth())
+        self.paramsEdit.setSizePolicy(sizePolicy5)
 
-        self.gridLayout.addWidget(self.paramsEdit, 2, 2, 1, 1)
-
-        self.responseViewer = QTextBrowser(Widget)
-        self.responseViewer.setObjectName(u"responseViewer")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(100)
-        sizePolicy5.setHeightForWidth(self.responseViewer.sizePolicy().hasHeightForWidth())
-        self.responseViewer.setSizePolicy(sizePolicy5)
-        self.responseViewer.setTextInteractionFlags(Qt.LinksAccessibleByKeyboard|Qt.TextSelectableByKeyboard|Qt.TextSelectableByMouse)
-
-        self.gridLayout.addWidget(self.responseViewer, 3, 1, 1, 2)
+        self.gridLayout.addWidget(self.paramsEdit, 2, 3, 1, 1)
 
 
         self.retranslateUi(Widget)
@@ -182,5 +193,7 @@ class Ui_Widget(object):
         self.checkBox_2.setText(QCoreApplication.translate("Widget", u"Allow HTTP", None))
         self.checkBox_3.setText(QCoreApplication.translate("Widget", u"Params", None))
         self.sendBtn.setText(QCoreApplication.translate("Widget", u"Send", None))
+        self.label_3.setText(QCoreApplication.translate("Widget", u"Request Body", None))
+        self.label_4.setText(QCoreApplication.translate("Widget", u"Query Parameters (JSON syntax)", None))
     # retranslateUi
 

@@ -23,6 +23,16 @@ class Widget(QWidget):
     def validate_body(body):
         return True
 
+    @staticmethod
+    def handle_response(response, indent=4):
+        content_type = response.headers['content-type']
+        if content_type == 'text/html':
+            return response.text
+        elif 'application/json' in content_type:
+            return json.dumps(response.json(),indent=indent)
+        else:
+            return f'Content type of {content_type} not implemented.'
+
     def make_request(self):
 
         method=self.ui.methodCombo.currentText()             # has been checked
@@ -30,14 +40,17 @@ class Widget(QWidget):
         if method in ["GET", "DELETE", "OPTIONS"]:
             body = None
         elif method in ["POST", "PUT"]:
-            body = json.loads(self.ui.requestEdit.toPlainText()) # has been checked
+            try:
+                body = json.loads(self.ui.requestEdit.toPlainText()) # has been checked
+            except ValueError:
+                self.ui.responseViewer.setText('Invalid request body: please enter valid json.')
+                return
 
-        if validate_body(body):
-            uri = self.ui.uriEdit.text()                         # has been checked
-            response = requests.request(url=uri,method=method,json=body,verify=False)
-            self.ui.responseViewer.setText(response.text)
-        else:
-            print('Error - invalid request body')
+        uri = self.ui.uriEdit.text()                         # has been checked
+        output = self.handle_response(requests.request(url=uri,method=method,json=body,verify=False))
+        
+        self.ui.responseViewer.setText(output)
+            
 
 
     def configure_request_body_input(self):
