@@ -92,38 +92,38 @@ class Ui_Widget(object):
 
         self.horizontalLayout_3.addWidget(self.methodCombo)
 
-        self.checkBox_4 = QCheckBox(Widget)
-        self.checkBox_4.setObjectName(u"checkBox_4")
-        self.checkBox_4.setChecked(True)
+        self.pPrint = QCheckBox(Widget)
+        self.pPrint.setObjectName(u"pPrint")
+        self.pPrint.setChecked(True)
 
-        self.horizontalLayout_3.addWidget(self.checkBox_4)
+        self.horizontalLayout_3.addWidget(self.pPrint)
 
-        self.checkBox_6 = QCheckBox(Widget)
-        self.checkBox_6.setObjectName(u"checkBox_6")
+        self.appjson = QCheckBox(Widget)
+        self.appjson.setObjectName(u"appjson")
         sizePolicy4 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
         sizePolicy4.setHorizontalStretch(5)
         sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.checkBox_6.sizePolicy().hasHeightForWidth())
-        self.checkBox_6.setSizePolicy(sizePolicy4)
-        self.checkBox_6.setChecked(True)
+        sizePolicy4.setHeightForWidth(self.appjson.sizePolicy().hasHeightForWidth())
+        self.appjson.setSizePolicy(sizePolicy4)
+        self.appjson.setChecked(True)
 
-        self.horizontalLayout_3.addWidget(self.checkBox_6)
+        self.horizontalLayout_3.addWidget(self.appjson)
 
-        self.checkBox = QCheckBox(Widget)
-        self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setChecked(True)
+        self.verifySsl = QCheckBox(Widget)
+        self.verifySsl.setObjectName(u"verifySsl")
+        self.verifySsl.setChecked(True)
 
-        self.horizontalLayout_3.addWidget(self.checkBox)
+        self.horizontalLayout_3.addWidget(self.verifySsl)
 
-        self.checkBox_2 = QCheckBox(Widget)
-        self.checkBox_2.setObjectName(u"checkBox_2")
+        self.allowHttp = QCheckBox(Widget)
+        self.allowHttp.setObjectName(u"allowHttp")
 
-        self.horizontalLayout_3.addWidget(self.checkBox_2)
+        self.horizontalLayout_3.addWidget(self.allowHttp)
 
-        self.checkBox_3 = QCheckBox(Widget)
-        self.checkBox_3.setObjectName(u"checkBox_3")
+        self.params = QCheckBox(Widget)
+        self.params.setObjectName(u"params")
 
-        self.horizontalLayout_3.addWidget(self.checkBox_3)
+        self.horizontalLayout_3.addWidget(self.params)
 
         self.sendBtn = QPushButton(Widget)
         self.sendBtn.setObjectName(u"sendBtn")
@@ -187,11 +187,11 @@ class Ui_Widget(object):
         self.methodCombo.setItemText(3, QCoreApplication.translate("Widget", u"DELETE", None))
         self.methodCombo.setItemText(4, QCoreApplication.translate("Widget", u"OPTIONS", None))
 
-        self.checkBox_4.setText(QCoreApplication.translate("Widget", u"PPrint", None))
-        self.checkBox_6.setText(QCoreApplication.translate("Widget", u"APPLICATION/JSON", None))
-        self.checkBox.setText(QCoreApplication.translate("Widget", u"Verify SSL", None))
-        self.checkBox_2.setText(QCoreApplication.translate("Widget", u"Allow HTTP", None))
-        self.checkBox_3.setText(QCoreApplication.translate("Widget", u"Params", None))
+        self.pPrint.setText(QCoreApplication.translate("Widget", u"PPrint", None))
+        self.appjson.setText(QCoreApplication.translate("Widget", u"APPLICATION/JSON", None))
+        self.verifySsl.setText(QCoreApplication.translate("Widget", u"Verify SSL", None))
+        self.allowHttp.setText(QCoreApplication.translate("Widget", u"Allow HTTP", None))
+        self.params.setText(QCoreApplication.translate("Widget", u"Params", None))
         self.sendBtn.setText(QCoreApplication.translate("Widget", u"Send", None))
         self.label_3.setText(QCoreApplication.translate("Widget", u"Request Body", None))
         self.label_4.setText(QCoreApplication.translate("Widget", u"Query Parameters (JSON syntax)", None))

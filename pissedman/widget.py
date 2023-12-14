@@ -47,7 +47,12 @@ class Widget(QWidget):
                 return
 
         uri = self.ui.uriEdit.text()                         # has been checked
-        output = self.handle_response(requests.request(url=uri,method=method,json=body,verify=False))
+        verify = self.ui.verifySsl.isChecked()
+        
+        try:
+            output = self.handle_response(requests.request(url=uri,method=method,json=body,verify=verify))
+        except requests.exceptions.SSLError:
+            output = "SSL validation failed, are you behind a MITM proxy? De-select 'SSL Verify' if you are confident in the security and privacy of your conneciton (do so at your own risk!)"
         
         self.ui.responseViewer.setText(output)
             

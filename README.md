@@ -12,6 +12,10 @@ Functionality can then be expanded upon in the future but my personal requiremen
 - requests
 - PySide6
 
+## Additional Requirements for Dev
+
+- QT Creator for UI modifications.
+
 ## Installation
 
 For now, simply clone the repo and run the app, however, in future we will be making it installable via pip/pipx.
