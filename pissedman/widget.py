@@ -68,10 +68,6 @@ class Widget(QWidget):
 
 
 if __name__ == "__main__":
-    
- 
-    path = './logs.txt'
-    sys.stdout = open(path, 'w')
 
     app = QApplication(sys.argv)
     widget = Widget()
